@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  /* CSS styles */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff3399, #ff6666); /* Gradient background */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    animation: changeBackground 10s infinite alternate; /* Animation */
+  }
+
+  @keyframes changeBackground {
+    0% {
+      background: linear-gradient(to right, #ff3399, #ff6666);
+    }
+    50% {
+      background: linear-gradient(to right, #ff6666, #ff3399);
+    }
+    100% {
+      background: linear-gradient(to right, #ff3399, #ff6666);
+    }
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: bounce 1s infinite alternate; /* Animation */
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .gallery {
+    margin-top: 50px;
+  }
+
+  .gallery h2 {
+    color: #ff0066;
+  }
+
+  .gallery-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .gallery-images img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  /* Custom font styles */
+  .birthday-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Dark gray */
+  }
+
+  .wishes-message {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #666; /* Gray */
+  }
+
+  /* Countdown timer styles */
+  .countdown {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #fff; /* White */
+  }
+
+  .countdown i {
+    margin: 0 5px;
+  }
+</style>
+</head>
+<body>
+<audio autoplay loop>
+  <source src="happy-birthday-155461.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="container">
+  <div class="card">
+    <h1>Happy Birthday!</h1>
+    <p>Dear <span class="birthday-name">[Ruchika]</span>,</p>
+    <p class="wishes-message">Wishing you a day filled with love, joy, and lots of laughter!</p>
+    <p>With all my love,</p>
+    <p>[Your bubu]</p>
+  </div>
+
+  <div class="gallery">
+    <h2>Photo Gallery</h2>
+    <div class="gallery-images">
+      <img src="WhatsApp Image 2024-04-08 at 9.45.40 AM.jpeg" alt="Birthday Image 1">
+      <img src="WhatsApp Image 2024-04-08 at 9.45.42 AM.jpeg" alt="Birthday Image 2">
+      <img src="WhatsApp Image 2024-04-08 at 9.45.44 AM.jpeg" alt="Birthday Image 3">
+      <!-- Add more images as needed -->
+    </div>
+  </div>
+
+  <!-- Countdown timer -->
+  <div class="countdown">
+    <i class="far fa-clock"></i>
+    <span id="countdown"></span>
+  </div>
+</div>
+
+<script>
+  // JavaScript for animation
+  const card = document.querySelector('.card');
+  card.addEventListener('mouseover', () => {
+    card.style.animation = 'none';
+  });
+
+  card.addEventListener('mouseout', () => {
+    card.style.animation = 'bounce 1s infinite alternate';
+  });
+
+  // Countdown timer functionality
+  const countdownElement = document.getElementById('countdown');
+  const birthday = new Date('2024-04-09'); // Change to girlfriend's birthday
+  setInterval(updateCountdown, 1000);
+
+  function updateCountdown() {
+    const currentTime = new Date();
+    const difference = birthday - currentTime;
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    countdownElement.innerHTML = ${days}d ${hours}h ${minutes}m ${seconds}s;
+  }
+</script>
+</body>
+</html>
